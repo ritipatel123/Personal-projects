@@ -1,0 +1,16 @@
+﻿Riti Patel 
+706254474 
+
+
+Some notable obstacles I had to overcome was creating the individual switch cases for the different parts of the body. I had to make sure that each case accounted for whether a certain body part had already been built in order for the next body part to be built. For example, for the tail case of the beetle game, the tail could only be built if the body had been built. I had to account for this in both the humanPlay method and the computerPlay method. 
+
+
+Test Cases 
+1)b.buildLeg(); assert(b.hasLeg1()); assert(b.hasLeg2()); assert(b.hasLeg3()); assert(b.hasLeg4()); assert(b.isComplete() == false); // Beetle should not be complete after building legs
+
+
+2) // Test cheating play scenario assert(game.gameIsOver() == false); // Human rolls and plays to build Eye (cheating) game.humanRoll(1); game.humanPlay(); // Computer rolls and plays to build Eye (cheating) game.computerRoll(1); game.computerPlay(); // Assert that neither player's beetle is complete and does not have a body assert(game.getHumanBeetle().isComplete() == false); assert(game.getHumanBeetle().hasBody() == false); assert(game.getComputerBeetle().isComplete() == false); assert(game.getComputerBeetle().hasBody() == false); assert(game.gameIsOver() == false); // Human rolls and plays to build Body (cheating) game.humanRoll(6); game.humanPlay(); // Computer rolls and plays to build Body (cheating) game.computerRoll(6); game.computerPlay(); // Assert that both players' beetles have a body but are not complete assert(game.getHumanBeetle().isComplete() == false); assert(game.getHumanBeetle().hasBody()); assert(game.getComputerBeetle().isComplete() == false); assert(game.getComputerBeetle().hasBody()); std::cout << "All tests passed!" << std::endl;
+
+
+3)
+assert(game.gameIsOver() == false); // Human rolls and plays to build Body game.humanRoll(6); game.humanPlay(); // Computer rolls and plays to build Body game.computerRoll(6); game.computerPlay(); // Assert that both players' beetles have a body but are not complete assert(game.getHumanBeetle().isComplete() == false); assert(game.getHumanBeetle().hasBody()); assert(game.getComputerBeetle().isComplete() == false); assert(game.getComputerBeetle().hasBody()); // Human rolls and plays to build Leg game.humanRoll(3); game.humanPlay(); // Computer rolls and plays to build Leg game.computerRoll(3); game.computerPlay(); // Assert that both players' beetles have legs but are not complete assert(game.getHumanBeetle().isComplete() == false); assert(game.getHumanBeetle().hasLeg1()); assert(game.getComputerBeetle().isComplete() == false); assert(game.getComputerBeetle().hasLeg1()); // Human rolls and plays to build Head game.humanRoll(5); game.humanPlay(); // Computer rolls and plays to build Head game.computerRoll(5); game.computerPlay(); // Assert that both players' beetles have a head but are not complete assert(game.getHumanBeetle().isComplete() == false); assert(game.getHumanBeetle().hasHead()); assert(game.getComputerBeetle().isComplete() == false); assert(game.getComputerBeetle().hasHead()); std::cout << "All tests passed!" << std::endl;
