@@ -1,0 +1,46 @@
+﻿Summary 
+The doubly linked list is composed of nodes. Each node contains two pointers: next, pointing to the next node in the sequence, and prev, pointing to the previous node in the sequence. Additionally, each node stores a value of type ItemType. The default constructor Set::Set() initializes the head and tail pointers to nullptr and sets the size (m_size) of the list to 0. The destructor Set::~Set() deallocates the memory allocated for all nodes in the list by traversing the list and deleting each node.
+
+
+
+
+Pseudocode: 
+
+
+Constructor Set(): Initialize head, tail to nullptr Set m_size to 0 
+Destructor ~Set(): If m_size is 0, return If m_size is 1: Delete head Return Initialize temp to head While temp's next is not nullptr: Move temp to temp's next Delete temp's previous node, Delete tail 
+Copy Constructor Set(const Set& other): Initialize i to 0
+ Initialize temphead to head, For each node temp in other's linked list: If i is 0: Create a new node and assign it to head, Copy the value of other's head to this new node Set its prev and next pointers to nullptr Increment i and set temphead to head If other's size is 1, set tail to temphead Increment m_size Else: Create a new node and assign it to newNode, Copy the value of temp to newNode Set temphead's next to newNode Set newNode's prev to temphead Move temphead to newNode Increment i and m_size If i equals other's size, set temphead's next to nullptr and tail to temphead If other's size is 0, set head, tail to nullptr and m_size to 0 
+
+
+Assignment Operator Set& operator=(const Set& rhs): If this instance is not equal to rhs: Create a temporary Set object with rhs Swap the contents of this instance with the temporary Set object Return this instance 
+Method empty(): Return true if m_size is 0, otherwise false 
+Method size(): Return the value of m_size 
+Method insert(const ItemType& value): If value is already in the set, return false, Create a new node with value, If m_size is 0, set head, tail to the new node and its prev to nullptr, Else, set tail's next to the new node and its prev to tail Set tail to the new node Increment m_size Return true 
+Method erase(const ItemType& value): For each node p in the linked list: If p's value is equal to the given value: Update the pointers to remove p from the linked list, Delete p, Decrement m_size ,Return true if value is not found, return false 
+
+
+Method contains(const ItemType& value): For each node p in the linked list: If p's value is equal to the given value, return true If value is not found, return false 
+Method get(int pos, ItemType& value): If the linked list is empty or pos is out of bounds, return false, Initialize out to head, While outer is not nullptr: Initialize lessThanCount to 0 Initialize inner to head While in is not nullptr: If out is not equal to in and out’s value is less than in's value, increment lessThanCount Move in to in's next If lessThanCount is equal to pos: Set value to out's value Return true Move out to out's next Return false 
+Method swap(Set& other): Swap the values of m_size, head, and tail between this instance and the other Set instance 
+Function unite(const Set& s1, const Set& s2, Set& result): For each element temp in s2: Insert temp into result If result is an alias of s1: Return For each element temp in s1: Insert temp into result 
+Function inOnlyOne(const Set& s1, const Set& s2, Set& result): Create a temporary Set s and initialize it with the contents of result For each element item in s1: If item is not in s2, insert item into s For each element item in s2: If item is not in s1, insert item into s Assign s to result
+
+
+
+
+The following is a list of test cases I used in order to test my code:
+int main() { Set s1, s2, result; // Insert elements into set s1 
+s1.insert(10); 
+s1.insert(20); 
+s1.insert(30); // Insert elements into set s2 
+s2.insert(20); 
+s2.insert(40); 
+s2.insert(50); // Unite sets s1 and s2 into result set 
+unite(s1, s2, result); // Display elements in the result set after uniting 
+std::cout << "Elements after uniting s1 and s2:" << std::endl; 
+for (int i = 0; i < result.size(); ++i) { int value; result.get(i, value); std::cout << value << " "; } std::cout << std::endl; // Create a new set to hold elements only in one of s1 or s2 
+Set onlyOne; // Find elements that are in only one of s1 or s2 
+inOnlyOne(s1, s2, onlyOne); // Display elements in the onlyOne set 
+std::cout << "Elements in only one of s1 or s2:" << std::endl; 
+for (int i = 0; i < onlyOne.size(); ++i) { int value; onlyOne.get(i, value); std::cout << value << " "; } std::cout << std::endl; return 0; }
