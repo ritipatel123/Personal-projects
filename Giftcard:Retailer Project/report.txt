@@ -1,0 +1,8 @@
+﻿Riti Patel 
+706254474 
+
+
+One obstacle I overcame  while creating the project was finding the cost for the first gift card and subtracting this total from the purchasing item, while also subtracting the amount from the second card from the purchasing item. I also had to account for the fact that there could be an insufficient balance on the giftcards, which would allow no amount of money to be subtracted from the purchasing item. I also had to account for there being a balance less than required for the purchasing item in card 1, and then how to use the other balance from card 2 to cover the purchase of the item. 
+
+
+Some test cases I used for the project were using the strings “best buy” and “microsoft store” for the gift card and retailer files. I set the card amount to be $200 and then I created an assert statement that would be false if the item trying to be purchased was $300 since the gift card can not cover the amount. I set the statement that would be true if the item trying to be purchased was $150 since the gift card can cover this amount. Some other examples of test cases would be implementing gift cards that have a negative balance, this would just be set to false as it is an invalid input.
