@@ -1,0 +1,11 @@
+﻿This C++ program simulates the state of a CD player based on a sequence of commands and tracks provided as a string (cdstring). The string contains characters representing actions (such as opening, inserting a CD, playing, stopping, or removing a CD) and tracks (represented by digits '1' to '9'). 
+
+
+Some of the rules of the program 
+* O opens the player; only allowed as the first action or after the player is closed.
+* I inserts a CD; allowed only when the player is open and a CD is not currently in the player.
+* R removes the CD; allowed only when the player is open and a CD is inserted.
+* C closes the player; allowed only when the player is open.
+* P starts playing the CD; allowed only when the player is closed with an inserted CD.
+* S stops playing; allowed only while a CD is being played.
+* Numbers 1 to 9 represent tracks played; they must be in sequential order and can only be played when a CD is inserted and not stopped.
